@@ -1,5 +1,5 @@
 require 'bundler'
-Bunder.require
+Bundler.require
 
 require_relative "./tv_show/api"
 require_relative "./tv_show/cli"

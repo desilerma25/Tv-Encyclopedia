@@ -4,7 +4,7 @@ class Tv_Show
 
     @@all = []
     
-    def initialize(name, status, rating, summary)
+    def initialize(name, status, rating, summary, cast, seasons, episodes)
         @name = name
         @status = status
         @rating = rating
@@ -20,3 +20,5 @@ class Tv_Show
     end
     
 end
+
+puts "Tv Show"
