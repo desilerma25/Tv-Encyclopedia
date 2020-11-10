@@ -13,5 +13,7 @@ class API
         hash = JSON.parse(response)
         array_of_shows = hash["name"]
         # binding.pry 
+        array_of_shows.each do |show|
+            binding.pry
     end
 end
