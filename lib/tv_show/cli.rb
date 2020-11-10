@@ -17,6 +17,14 @@ class CLI
         input_to_i -1
     end
 
+    def more_info?
+        puts "Would you like to look at more details about this show?"
+        puts "Yes"
+        puts "No"
+        input = gets.chomp
+        
+    end
+
     def another_show?
         puts "Would you like to view information on another popular show?"
         puts "Yes"

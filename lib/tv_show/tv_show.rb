@@ -1,14 +1,17 @@
 class Tv_Show
 
-    attr_accessor :id, :name, :rating, :summary
+    attr_accessor :name, :status, :rating, :summary, :cast, :seasons, :episodes
 
     @@all = []
     
-    def initialize(id, name, rating, summary)
-        @id = id
+    def initialize(name, status, rating, summary)
         @name = name
+        @status = status
         @rating = rating
         @summary = summary
+        @cast = cast
+        @seasons = seasons
+        @episodes = episodes
         @@all << self
     end
 
