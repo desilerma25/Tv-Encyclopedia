@@ -1,6 +1,6 @@
 require 'bundler'
 Bunder.require
 
-require_relative "./tv-show/api"
-require_relative "./tv-show/cli"
-require_relative "./tv-show/tv-show"
+require_relative "./tv_show/api"
+require_relative "./tv_show/cli"
+require_relative "./tv_show/tv_show"
