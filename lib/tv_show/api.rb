@@ -1,13 +1,7 @@
 class API
 
-    attr_accessor :query
-
-    def initialize(query)
-        @query = query
-    end
-
     def fetch_shows
-        url = "http://api.tvmaze.com/shows/#{query}?embed[]=seasons&embed[]=episodes&embed[]=cast"
+        url = "http://api.tvmaze.com/shows/526?embed[]=seasons&embed[]=episodes&embed[]=cast"
         uri = URI(url)
         response = Net::HTTP.get(uri)
         hash = JSON.parse(response)
