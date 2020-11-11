@@ -3,7 +3,7 @@ class CLI
     def start
         puts "Welcome!"
         API.fetch_info
-        self.menu
+        menu
     end
 
     def menu
@@ -21,6 +21,9 @@ class CLI
         else
             puts "Hope you enjoyed some nuggest of information!"
         end
+    end
+
+    def user_input
     end
 
     def ask_user_what_info
@@ -46,6 +49,7 @@ class CLI
             puts "#{index}. #{info.rating}"
             puts "#{index}. #{info.summary}"
             puts "#{index}. #{info.genres}"
+        end
     end
 
 
