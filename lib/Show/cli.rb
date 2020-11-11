@@ -3,68 +3,67 @@ class CLI
 
     @@shows = ["I Love Lucy", "The Twilight Zone", "Schitt's Creek", "Breaking Bad", "Game of Thrones"]
 
-    
     def start
         puts "Welcome!"
-        API.fetch_info
-        menu
+        puts "What show would you like to see more information on?"
+        self.display_shows
+        index = self.initial_input
+        query = CLI.shows[index]
+        api = API.new(query)
+        api.create_show
+        Show.display_info_options
+        index = self.secondary_input
+
+        Show.display_info_details(index)
+        self.another_show?
     end
 
-    def menu
-        puts "Would you like to learn more about on of these popular shows?"
-        puts "Type 'yes' to proceed or select another key to exit."
-        user_input = gets.chomp.downcase
-        if user_input == "yes" || "y"
-            puts "Great! Which show would you like to know about?"
-            display_list_of_options
-            ## Stuck here!! App leaves off at 1. Rating... cannot accept user input
-            index = self.initial_input
-            ask_user_what_info
-            sleep(1)
-            menu
-        elsif user_input == search
+    def input_to_index(input)
+        input.to_i-1
+    end
 
-            menu
-        else
-            puts "Hope you enjoyed some nuggest of information!"
+    def another_show?
+        puts "Would you like information on a different show?"
+        puts "1. Yes"
+        puts "2. No"
+        input = gets.chomp
+        index = input_to_index(input)
+
+        if index == 0
+            Show.clear_all
+            self.start
         end
     end
 
     def initial_input
         input = gets.chomp
-        index = input_to_index
-    end
+        index = input_to_index(input)
 
-
-    def ask_user_what_info
-        index = gets.chomp.to_i-1
-        max_limit = Office.all.length-1
-        until index.between?(0,max_limit)
-            puts "Sorry I don't understand what you were trying to select."
-            index = gets.chomp.to_i-1
+        if !index.between?(0,4)
+            puts "Please enter a valid option (a number between 1 and 5)."
+            self.initial_input
+        else
+            index
         end
-        info_instance = Office.all[index]
-        display_info_details(info_instance)
     end
 
-    # def display_info_details(info)
-    #     sleep(1)
-    #     puts "\nRating:" + info_instance.rating
-    #     puts "\nSummary:" + info_instance.summary 
-    #     puts "\nGenres:" + info_instance.genres 
-    # end
-
-    def display_list_of_options
-        # Office.all.each.with_index(1) do  
-       puts "1. Rating"
-       puts "2. Summary"
-       puts "3. Genres"
-       input = gets.chomp
-       index = input_to_index(input)
+    def secondary_input
+        input = gets.chomp
+        index = input_to_index(input)
+        if !index.between?(0,4)
+            puts "Please enter a valid option (a number between 1 and 5)."
+            self.secondary_input
+        else
+            index
+        end
     end
 
-    def input_to_index(input)
-        input.to_i-1
+    def self.shows
+        @@shows
+    end
+
+    def display_shows
+        CLI.shows.each_with_index{|show, index| puts "#{index+1}. #{show.capitalize}"}
     end
 
 end
