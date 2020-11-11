@@ -1,6 +1,6 @@
 require 'bundler'
 Bundler.require
 
-require_relative "./tv_show/api"
-require_relative "./tv_show/cli"
-require_relative "./tv_show/tv_show"
+require_relative "./office/api"
+require_relative "./office/cli"
+require_relative "./office/office"
