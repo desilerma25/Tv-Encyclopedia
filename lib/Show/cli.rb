@@ -1,5 +1,9 @@
 require 'pry'
 class CLI
+
+    @@shows = ["I Love Lucy", "The Twilight Zone", "Schitt's Creek", "Breaking Bad", "Game of Thrones"]
+
+    
     def start
         puts "Welcome!"
         API.fetch_info
@@ -7,11 +11,11 @@ class CLI
     end
 
     def menu
-        puts "Would you like to learn more about The Office (U.S)?"
+        puts "Would you like to learn more about on of these popular shows?"
         puts "Type 'yes' to proceed or select another key to exit."
         user_input = gets.chomp.downcase
         if user_input == "yes" || "y"
-            puts "Great! What would you like to know about?"
+            puts "Great! Which show would you like to know about?"
             display_list_of_options
             ## Stuck here!! App leaves off at 1. Rating... cannot accept user input
             index = self.initial_input
