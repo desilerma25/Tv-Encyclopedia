@@ -12,13 +12,13 @@ class API
         array_of_info.each do |info_hash|
             info_instance = Office.new(name: info_hash[2])
             info_instance.summary = info_hash[17]
-            info_instance.rating = info_hash[11][1]
+            info_instance.rating = info_hash[11] #[1]
             info_instance.genres = info_hash[5]
         end
     end
 end
 
-API.fetch_info
+# API.fetch_info
 puts "API"
 
 

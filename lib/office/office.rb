@@ -1,3 +1,4 @@
+require 'pry'
 class Office
 
     attr_accessor :name, :rating, :summary, :genres
@@ -6,9 +7,9 @@ class Office
     
     def initialize(name)
         @name = name
-        @rating = rating
-        @summary = summary
-        @genres = genres
+        # @rating = rating
+        # @summary = summary
+        # @genres = genres
         @@all << self
     end
 
@@ -17,5 +18,5 @@ class Office
     end
 
 end
-
+# binding.pry
 puts "The Office"
