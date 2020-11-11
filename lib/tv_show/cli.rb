@@ -1,4 +1,6 @@
+require 'pry'
 class CLI
+   
 
     @@shows = ["The Wire", "The Sopranos", "The Twilight Zone", "Breaking Bad", "I Love Lucy"]
 
@@ -19,21 +21,23 @@ class CLI
     end
 
     def input_to_index(input)
-        input_to_i -1
+        binding.pry
+        input.to_i-1
+    
     end
 
-    def more_info?
-        puts "Would you like to look at more details about this show?"
-        puts "1. Yes"
-        puts "2. No"
-        input = gets.chomp
-        puts "Would you like information on the cast, seasons, or episodes?"
-        display_more_options # create this method, 
-        input = gets.chomp
-        input.each do |option|
+    # def more_info?
+    #     puts "Would you like to look at more details about this show?"
+    #     puts "1. Yes"
+    #     puts "2. No"
+    #     input = gets.chomp
+    #     puts "Would you like information on the cast, seasons, or episodes?"
+    #     display_more_options # create this method, 
+    #     input = gets.chomp
+    #     input.each do |option|
 
 
-    end
+    # end
 
     def another_show?
         puts "Would you like to view information on another popular show?"
@@ -55,8 +59,10 @@ class CLI
         end
     end
 
-    def secondary_input
-        input = gets.chomp
+    # def secondary_input
+    #     input = gets.chomp
+    #     index =
+    # end
 
 
     def self.shows
@@ -64,7 +70,7 @@ class CLI
     end
 
     def display_shows
-        CLI.topics.each_with_index{|show, index| puts "#{index+1}. #{show.capitalize}"}
+        CLI.shows.each_with_index{|show, index| puts "#{index+1}. #{show.capitalize}"}
     end
 end
 
