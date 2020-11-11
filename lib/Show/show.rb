@@ -5,7 +5,7 @@ class Show
 
     @@all = []
     
-    def initialize(name)
+    def initialize(name, rating, summary, genres, status)
         @name = name
         @rating = rating
         @summary = summary
@@ -27,7 +27,7 @@ class Show
         self.all.each_with_index{|show, index| puts "#{index+1}. #{show.name}"}
     end
 
-    def self.display_info_details(index)
+    def self.display_show_details(index)
         show = self.all[index]
         puts "#{show.name} -- #{show.rating}"
         puts "#{show.genres}"
