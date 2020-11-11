@@ -21,7 +21,6 @@ class API
         info_instance.rating = info["rating"]
         info_instance.genres = info["genres"]
         info_instance.status = info["status"]
-        info_instance.premiere = info["premiereDate"]
         
         # binding.pry
     end
