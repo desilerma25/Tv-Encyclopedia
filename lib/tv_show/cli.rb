@@ -1,12 +1,10 @@
 require 'pry'
 class CLI
-   
 
-    @@shows = ["The Wire", "The Sopranos", "The Twilight Zone", "Breaking Bad", "I Love Lucy"]
 
     def start
-        puts "Welcome! Curious about popular television shows? Let me help!"
-        puts "Please select one of the following highly popular television shows to view more information on them."
+        puts "Welcome! Want to know more about The Office (U.S)? Let me help!"
+        puts "Please select what information you would like to see."
         self.display_shows
         index = self.initial_input
         query = CLI.shows[index]
@@ -39,13 +37,13 @@ class CLI
 
     # end
 
-    def another_show?
-        puts "Would you like to view information on another popular show?"
-        puts "1. Yes"
-        puts "2. No"
-        input = gets.chomp
-        index = input_to_index(input)
-    end
+    # def another_show?
+    #     puts "Would you like to view information on another popular show?"
+    #     puts "1. Yes"
+    #     puts "2. No"
+    #     input = gets.chomp
+    #     index = input_to_index(input)
+    # end
 
     def initial_input
         input = gets.chomp
