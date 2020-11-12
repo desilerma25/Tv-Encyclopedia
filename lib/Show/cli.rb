@@ -23,10 +23,10 @@ class CLI
     end
 
     def display_show_details(show)
-        puts "#{show.name} -- #{show.rating}"
-        puts "#{show.genres}"
-        puts "#{show.status}"
-        puts "#{show.summary}"
+        puts "#{show.name} -- Rating: #{show.rating}"
+        puts "Genre(s): #{show.genres}"
+        puts "Status: #{show.status}"
+        puts "Summary: #{show.summary}"
     end
 
     def self.shows

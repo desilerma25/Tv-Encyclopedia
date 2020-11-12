@@ -20,7 +20,7 @@ class API
 
     def create_shows
         show = self.fetch_info[0]
-        x = Show.new(show["show"]["name"], show["show"]["ratings"], show["show"]["summary"], show["show"]["genres"], show["show"]["status"])
+        x = Show.new(show["show"]["name"], show["show"]["rating"]["average"], show["show"]["summary"], show["show"]["genres"], show["show"]["status"])
         # binding.pry
     end
 end
