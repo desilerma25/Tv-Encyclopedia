@@ -9,16 +9,24 @@ class CLI
         sleep(1)
         puts "Please choose a popular television show you'd like information on?"
         self.display_shows
+        # add case statement in here?
         index = self.initial_input
         query = CLI.shows[index]
         api = API.new(query)
-        api.create_shows
-        Show.display_show_details(index)
+        x = api.create_shows
+        display_show_details(x)
         self.back_to_menu?
     end
 
     def display_shows
         CLI.shows.each_with_index{|show, index| puts "#{index+1}. #{show.upcase}"}
+    end
+
+    def display_show_details(show)
+        puts "#{show.name} -- #{show.rating}"
+        puts "#{show.genres}"
+        puts "#{show.status}"
+        puts "#{show.summary}"
     end
 
     def self.shows

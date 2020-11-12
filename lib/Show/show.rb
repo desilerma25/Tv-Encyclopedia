@@ -17,12 +17,6 @@ class Show
         @@all
     end
 
-    def self.display_show_details(index)
-        show = self.all[index]
-        puts "#{show.name} -- #{show.rating}"
-        puts "#{show.genres}"
-        puts "#{show.status}"
-        puts "#{show.summary}"
-    end
+
 
 end
