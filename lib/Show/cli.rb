@@ -7,20 +7,14 @@ class CLI
     def start
         puts "Welcome!"
         sleep(1)
-        puts "Would you like to see information on a popular television show?"
-        puts "Type 'yes' to continue."
-        user_input = gets.strip.downcase
-        if user_input == "yes" || user_input == "y"
-            puts "Great! Which show do you want to see more about?"
-            self.display_shows
-            index =self.initial_input
-            query = API.new(query)
-            API.create_shows
-            Show.display_show_details(index)
-            self.back_to_menu?
-        else
-            puts "Thanks for exploring!"
-        end
+        puts "Please choose a popular television show you'd like information on?"
+        self.display_shows
+        index = self.initial_input
+        query = CLI.shows[index]
+        api = API.new(query)
+        api.create_shows
+        Show.display_show_details(index)
+        self.back_to_menu?
     end
 
     def display_shows
@@ -42,16 +36,14 @@ class CLI
 
     def back_to_menu?
         puts "Would you like to return to the main menu?"
-        puts "Type 'yes' to continue."
+        puts "Type 'yes' to continue or another key to exit."
         user_input = gets.strip.downcase
         if user_input == "yes" || user_input == "y"
             self.start
         else
-            "Thanks for exploring!"
+            puts "Thanks for exploring!"
         end
     end
 
   
 end
-
-puts "CLI"
