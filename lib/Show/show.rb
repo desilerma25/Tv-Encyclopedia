@@ -27,13 +27,13 @@ class Show
     #     self.all.each_with_index{|show, index| puts "#{index+1}. #{show.name}"}
     # end
 
-    # def self.display_show_details(index)
-    #     show = self.all[index]
-    #     puts "#{show.name} -- #{show.rating}"
-    #     puts "#{show.genres}"
-    #     puts "#{show.status}"
-    #     puts "#{show.summary}"
-    # end
+    def self.display_show_details(index)
+        show = self.all[index]
+        puts "#{show.name} -- #{show.rating}"
+        puts "#{show.genres}"
+        puts "#{show.status}"
+        puts "#{show.summary}"
+    end
 
 end
 # binding.pry

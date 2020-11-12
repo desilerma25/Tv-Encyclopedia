@@ -21,12 +21,13 @@ class API
         # info_instance.rating = info["rating"]
         # info_instance.genres = info["genres"]
         # info_instance.status = info["status"]
-        info.each{|show| Show.new(show["name"], show["ratings"], show["summary"], show["genres"], show["status"])}
+        
     end
 
-    # def create_show
-        
-    # end
+    def create_shows
+        self.fetch_info.each{|show| Show.new(show["name"])} 
+        # , show["ratings"], show["summary"], show["genres"], show["status"])
+    end
 end
 
 
