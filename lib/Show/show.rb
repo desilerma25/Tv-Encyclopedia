@@ -5,7 +5,7 @@ class Show
 
     @@all = []
     
-    def initialize(name)
+    def initialize(name, rating, summary, genres, status)
         @name = name
         @rating = rating
         @summary = summary
