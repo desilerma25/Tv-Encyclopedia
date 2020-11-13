@@ -9,7 +9,6 @@ class CLI
         sleep(1)
         puts "Please choose a popular television show you'd like information on?"
         self.display_shows
-        # add case statement in here?
         index = self.initial_input
         query = CLI.shows[index]
         api = API.new(query)
@@ -26,7 +25,7 @@ class CLI
         puts "#{show.name} -- Rating: #{show.rating}"
         puts "Genre(s): #{show.genres}"
         puts "Status: #{show.status}"
-        puts "Summary: #{show.summary}"
+        puts "Summary: #{show.summary.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '')}"
     end
 
     def self.shows
