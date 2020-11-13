@@ -23,9 +23,9 @@ class CLI
 
     def display_show_details(show)
         puts "#{show.name} -- Rating: #{show.rating}"
-        puts "Genre(s): #{show.genres}"
+        puts "Genre(s): #{show.genres.join(", ")}"
         puts "Status: #{show.status}"
-        puts "Summary: #{show.summary.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '')}"
+        puts "Summary: #{show.summary.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '').gsub('<i>', '').gsub('</i>', '')}"
     end
 
     def self.shows
