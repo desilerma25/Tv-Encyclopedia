@@ -25,7 +25,7 @@ puts "  []                    []"
         puts "Would you like to view your television show options? Enter 'yes' to continue or 'no' to exit."
         user_input = gets.strip.downcase
         if user_input == "yes" || user_input == 'y'
-        puts "Please choose a popular television show from the list that you'd like information on?"
+        puts "Please choose a popular television show from the list that you'd like information on."
         self.display_shows
         ask_for_user_second_input
         self.back_to_menu?
