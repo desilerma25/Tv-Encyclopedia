@@ -1,4 +1,20 @@
 class CLI
+puts "            o "
+puts "   o       / "
+puts '    \     / '
+puts '     \   / '
+puts '      \ / '
+puts "+--------------v-------------+"
+puts "|  __________________      @ |"
+puts "| /                  \        |"
+puts '| |                  |  (\)  |'
+puts "| |                  |       |"
+puts "| |                  |  (-)  |"
+puts "| |                  |       |"
+puts '| \                  / :|||: |'
+puts "|  -ooo--------------  :|||: |"
+puts "+----------------------------+"
+puts "  []                    []"
 
     @@shows = ["I Love Lucy", "The Twilight Zone", "Schitt's Creek", "Breaking Bad", "Game of Thrones"]
 
