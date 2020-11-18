@@ -36,7 +36,7 @@ puts "  []                    []"
         else
             puts "Hmmm, that wasn't right. Why don't we take it from the top?"
             sleep(1)
-            self.start
+            start
         end
     end
 
@@ -56,7 +56,7 @@ puts "  []                    []"
             save_favorite(show_instance)
         else
             puts "We interrupt this program because that was not a valid option. Please select a valid number from the list (1-12)."
-            self.ask_for_user_second_input
+            ask_for_user_second_input
         end
     end
 
@@ -69,7 +69,7 @@ puts "  []                    []"
     end
 
     def initial_input
-        input = gets.strip.downcase #changed
+        input = gets.strip.downcase
         index = input_to_index(input)
     end
 
