@@ -1,25 +1,28 @@
 class CLI
-puts "            o "
-puts "   o       / "
-puts '    \     / '
-puts '     \   / '
-puts '      \ / '
-puts "+--------------v-------------+"
-puts "|  __________________      @ |"
-puts "| /                  \        |"
-puts '| |                  |  (\)  |'
-puts "| |                  |       |"
-puts "| |                  |  (-)  |"
-puts "| |                  |       |"
-puts '| \                  / :|||: |'
-puts "|  -ooo--------------  :|||: |"
-puts "+----------------------------+"
-puts "  []                    []"
+
+    def print_tv
+        puts "            o "
+        puts "   o       / "
+        puts '    \     / '
+        puts '     \   / '
+        puts '      \ / '
+        puts "+--------------v-------------+"
+        puts "|  __________________      @ |"
+        puts "| /                  \        |"
+        puts '| |                  |  (\)  |'
+        puts "| |                  |       |"
+        puts "| |                  |  (-)  |"
+        puts "| |                  |       |"
+        puts '| \                  / :|||: |'
+        puts "|  -ooo--------------  :|||: |"
+        puts "+----------------------------+"
+        puts "  []                    []"
+    end
 
     @@shows = ["I Love Lucy", "The Twilight Zone", "Schitt's Creek", "Breaking Bad", "Game of Thrones", "The Voice", "Criminal Minds", "How I Met Your Mother", "The Walking Dead", "Sons of Anarchy", "The Colbert Report", "The Biggest Loser"]
-    @@favorite_shows = []
 
     def start
+        print_tv
         puts "Welcome to the TV Encyclopedia!"
         sleep(1)
         puts "Would you like to view your television show options? Enter 'yes' to continue, 'no' to exit or 'view' to see your saved favorites."
@@ -49,8 +52,12 @@ puts "  []                    []"
         index = self.initial_input
         if index.between?(0,11) 
             query = CLI.shows[index]
-            api = API.new(query)
-            show_instance = api.create_shows
+            if Show.find_by_name(query) 
+                show_instance = Show.find_by_name(query)
+            else
+                api = API.new(query)
+                show_instance = api.create_shows
+            end
             display_show_details(show_instance)
             sleep(1)
             save_favorite(show_instance)
@@ -85,7 +92,7 @@ puts "  []                    []"
         puts "Type 'yes' to save, 'no' to continue or 'exit' to leave." 
         input = gets.strip.downcase
         if input == "yes" || input == "y"
-            @@favorite_shows << show_instance.name.to_s
+            show_instance.favorite = true
             puts "This show is now in your Favorites"
         elsif input == "no" || input == "n"
             puts "That's ok!! Maybe you'll find another show you're interested in."
@@ -111,16 +118,16 @@ puts "  []                    []"
     end
 
     def view_favorites
-        if @@favorite_shows.empty?
+        if Show.find_favorite == []
             puts "It appears you have not saved any shows yet."
             sleep(1)
             back_to_menu?
         else
             puts "Here are your favorite shows!"
-            @@favorite_shows.uniq.each_with_index{|show, index| puts "#{index+1}. #{show.upcase}"}
+            Show.find_favorite.each {|show| puts show.name}
             sleep(1)
             back_to_menu?
         end 
     end
-  
+
 end
