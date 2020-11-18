@@ -117,7 +117,6 @@ puts "  []                    []"
             back_to_menu?
         else
             puts "Here are your favorite shows!"
-            # puts "#{@@favorite_shows.uniq.join(", ")}"
             @@favorite_shows.uniq.each_with_index{|show, index| puts "#{index+1}. #{show.upcase}"}
             sleep(1)
             back_to_menu?
