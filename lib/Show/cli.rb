@@ -69,7 +69,7 @@ puts "  []                    []"
     end
 
     def initial_input
-        input = gets.chomp
+        input = gets.strip.downcase #changed
         index = input_to_index(input)
     end
 
@@ -120,8 +120,7 @@ puts "  []                    []"
             @@favorite_shows.uniq.each_with_index{|show, index| puts "#{index+1}. #{show.upcase}"}
             sleep(1)
             back_to_menu?
-        end
+        end 
     end
-
   
 end
