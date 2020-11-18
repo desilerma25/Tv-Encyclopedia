@@ -14,12 +14,10 @@ class API
         uri = URI(url)
         response = Net::HTTP.get(uri)
         info = JSON.parse(response)
-        
-        # binding.pry
     end
 
     def create_shows
-        show = self.fetch_info[0]
-        x = Show.new(show["show"]["name"], show["show"]["rating"]["average"], show["show"]["summary"], show["show"]["genres"], show["show"]["status"])
+        show = fetch_info[0]
+        created_show = Show.new(show["show"]["name"], show["show"]["rating"]["average"], show["show"]["summary"], show["show"]["genres"], show["show"]["status"])
     end
 end
