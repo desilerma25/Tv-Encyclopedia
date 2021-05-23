@@ -44,7 +44,7 @@ class CLI
     end
 
     def display_shows
-        CLI.shows.each_with_index{|show, index| puts "#{index+1}. #{show.upcase}"}
+        CLI.shows.each_with_index{|show, index| puts "#{index+1}. #{show.sub(/^./, &:upcase)}"}
     end
 
 
