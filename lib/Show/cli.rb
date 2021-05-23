@@ -28,10 +28,10 @@ class CLI
         puts "Would you like to view your television show options? Enter 'yes' to continue, 'no' to exit or 'view' to see your saved favorites."
         user_input = gets.strip.downcase
         if user_input == "yes" || user_input == 'y'
-        puts "Please choose a popular television show from the list that you'd like information on."
-        display_shows
-        ask_for_user_second_input
-        back_to_menu?
+            puts "Please choose a popular television show from the list that you'd like information on."
+            display_shows
+            ask_for_user_second_input
+            back_to_menu?
         elsif user_input == "no" || user_input == "n"
             puts "Thanks for channel surfing!"
         elsif user_input == "view"
