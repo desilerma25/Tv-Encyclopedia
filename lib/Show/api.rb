@@ -14,8 +14,6 @@ class API
         uri = URI(url)
         response = Net::HTTP.get(uri)
         info = JSON.parse(response)
-        
-        # binding.pry
     end
 
     def create_shows
