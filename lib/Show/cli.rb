@@ -84,7 +84,7 @@ class CLI
         puts "#{show.name} -- Rating: #{show.rating}"
         puts "Genre(s): #{show.genres.join(", ")}"
         puts "Status: #{show.status}"
-        puts "Summary: #{show.summary.gsub('<p>', '').gsub('</p>', '').gsub('<b>', '').gsub('</b>', '').gsub('<i>', '').gsub('</i>', '')}"
+        puts "Summary: #{show.summary.gsub!(/<("[^"]*"|'[^']*'|[^'">])*>/, '').strip}"
     end
 
     def save_favorite(show_instance)
